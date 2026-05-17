@@ -19,7 +19,7 @@
     "mongodb"
   ],
   "author": "Mourão",
-  "git": "",
+  "repository": "https://github.com/MouraoDev22/books-api.git",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
