@@ -22,31 +22,31 @@ This project is a simple REST API for managing a collection of books. It allows 
 
 ## Installation
 
-. Clone the repository:
+- Clone the repository:
 
 ```bash
 git clone https://github.com/MouraoDev22/books-api.git
 ```
 
-. Navigate to the project directory:
+- Navigate to the project directory:
 
 ```bash
-cd book-api
+cd books-api
 ```
 
-. Install the dependencies:
+- Install the dependencies:
 
 ```bash
 npm install
 ```
 
-. Compile the TypeScript code:
+- Compile the TypeScript code:
 
 ```bash
 npm run build
 ```
 
-. Start the server:
+- Start the server:
 
 ```bash
 npm run start
