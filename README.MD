@@ -25,7 +25,7 @@ This project is a simple REST API for managing a collection of books. It allows 
 . Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/book-api.git
+git clone https://github.com/MouraoDev22/books-api.git
 ```
 
 . Navigate to the project directory:
