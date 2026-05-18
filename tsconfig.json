@@ -4,18 +4,19 @@
     "module": "esnext",
     "lib": ["ESNext"],
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "removeComments": true,
+    "noEmitOnError": false,
     "paths": {
       "*": ["./node_modules/*"]
     },
     "types": ["node"]
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "server.ts"],
   "exclude": ["./node_modules", "**/*.spec.ts"]
 }
