@@ -11,7 +11,7 @@ connection.once("open", () => console.log("Conexão com o banco de dados estabel
 
 // Create an instance of the Express application and configure it to parse JSON request bodies
 const app: express.Application = express();
-app.use(express.js;
+app.use(express.json());
 
 // Define a route handler for the root URL ("/")
 app.get("/", (req: express.Request, res: express.Response): void => {
