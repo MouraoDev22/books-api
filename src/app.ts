@@ -1,5 +1,11 @@
 // @ts-ignore: missing type declarations for express
 import express from "express";
+import connectDB from "./config/dbConnect.js";
+
+// Connect to the MongoDB database using the connectDB function and store the connection in a variable 
+const conexion: any = await connectDB();
+conexion.on("error", (err: Error) => console.error("Erro de conexão: ", err)); // Log an error message to the console if there is an error during the connection process
+conexion.once("open", () => console.log("Conexão com o banco de dados estabelecida.")); // Log a message to the console when the connection is successfully established
 
 // Create an instance of the Express application and configure it to parse JSON request bodies
 const app: express.Application = express();

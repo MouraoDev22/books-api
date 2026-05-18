@@ -1,0 +1,21 @@
+import mongoose from "mongoose";
+
+// Define the Book schema
+const bookSchema: mongoose.Schema = new mongoose.Schema(
+  {
+    id: { type: mongoose.Schema.Types.ObjectId },
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    publisher: { type: String, required: true },
+    publishedDate: { type: Date, required: true },
+    pages: { type: Number, required: true },
+    genre: { type: Array, required: true },
+    price: { type: Number, required: true },
+  },
+  { versionKey: false },
+);
+
+// Create the Book model based on the schema
+const book: mongoose.Model<any> = mongoose.model("Books", bookSchema);
+
+export default book;

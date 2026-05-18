@@ -1,4 +1,4 @@
-# BOOKS API REST
+# BOOKSTORE API REST
 
 ## Description
 
