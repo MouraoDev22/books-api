@@ -16,6 +16,6 @@ const bookSchema: mongoose.Schema = new mongoose.Schema(
 );
 
 // Create the Book model based on the schema
-const book: mongoose.Model<any> = mongoose.model("Books", bookSchema);
+const book: mongoose.Model<any> = mongoose.model("books", bookSchema);
 
 export default book;
