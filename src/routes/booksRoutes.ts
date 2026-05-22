@@ -1,9 +1,12 @@
 // @ts-ignore: missing type declarations for express
 import express from "express";
-import BookController from '../controllers/BookController.js';
+import BookController from "../controllers/BookController.js";
 
-const router: express.Router = express.Router();
+// Create a new Express router instance to define the routes for book-related operations
+const routes: express.Router = express.Router();
+routes.get("/livros", BookController.getBooks);
+routes.get("/livros/:id", BookController.getBookByID);
+routes.post("/livros", BookController.updateBook);
+routes.delete("/livros/:id", BookController.deleteBook);
 
-router.get("/livros", BookController.getBooks);
-
-export default router;
+export default routes;
