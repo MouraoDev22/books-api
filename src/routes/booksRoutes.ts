@@ -4,4 +4,6 @@ import BookController from '../controllers/BookController.js';
 
 const router: express.Router = express.Router();
 
-router.get("/livros", BookController.listBooks);
+router.get("/livros", BookController.getBooks);
+
+export default router;
