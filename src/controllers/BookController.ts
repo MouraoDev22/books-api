@@ -45,7 +45,7 @@ class BookController {
     res: express.Response,
   ): Promise<void> {
     try {
-      const newBook: any = book.create(req.body);
+      const newBook: any = await book.create(req.body);
       res
         .status(201)
         .json({ message: "Livro cadastrado com sucesso!", livro: newBook });
@@ -86,7 +86,7 @@ class BookController {
     try {
       const id: string = req.params.id;
       await book.findByIdAndDelete(id);
-      res.status(204).json({ message: "Livro deletado com sucesso!" });
+      res.status(200).json({ message: "Livro deletado com sucesso!" });
     } catch (error: unknown) {
       const errorMessage: string =
         error instanceof Error ? error.message : "Erro desconhecido";

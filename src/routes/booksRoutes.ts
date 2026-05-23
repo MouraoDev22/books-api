@@ -6,7 +6,8 @@ import BookController from "../controllers/BookController.js";
 const routes: express.Router = express.Router();
 routes.get("/livros", BookController.getBooks);
 routes.get("/livros/:id", BookController.getBookByID);
-routes.post("/livros", BookController.updateBook);
+routes.post("/livros", BookController.registerBook);
+routes.put("/livros/:id", BookController.updateBook);
 routes.delete("/livros/:id", BookController.deleteBook);
 
 export default routes;
