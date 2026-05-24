@@ -1,6 +1,7 @@
 // @ts-ignore: missing type declarations for express
 import express from "express";
 import book from "../models/Book.js";
+import { author } from "../models/Author.js";
 
 // Define the BookController class with static methods for handling book-related operations
 class BookController {
@@ -44,11 +45,17 @@ class BookController {
     req: express.Request,
     res: express.Response,
   ): Promise<void> {
+    const newBook: any = req.body;
     try {
-      const newBook: any = await book.create(req.body);
+      const foundAuthor: any = await author.findById(newBook.author);
+      const completedBook: any = {
+        ...newBook,
+        author: { ...foundAuthor._doc },
+      };
+      const createdBook: any = await book.create(completedBook);
       res
         .status(201)
-        .json({ message: "Livro cadastrado com sucesso!", livro: newBook });
+        .json({ message: "Livro cadastrado com sucesso!", livro: createdBook });
     } catch (error: unknown) {
       const errorMessage: string =
         error instanceof Error ? error.message : "Erro desconhecido";
@@ -93,6 +100,25 @@ class BookController {
       res
         .status(500)
         .json({ message: `Erro ao deletar livro: ${errorMessage}` });
+    }
+    return;
+  }
+
+  // Static method to retrieve books from the database based on the publisher specified in the query parameters and return them as JSON
+  static async getBooksByPublisher(
+    req: express.Request,
+    res: express.Response,
+  ): Promise<void> {
+    const publisher: string = req.query.publisher;
+    try {
+      const booksByPublisher: any = await book.find({ publisher: publisher });
+      res.status(200).json(booksByPublisher);
+    } catch (error: unknown) {
+      const errorMessage: string =
+        error instanceof Error ? error.message : "Erro desconhecido";
+      res
+        .status(500)
+        .json({ message: `Erro ao obter livros por editora: ${errorMessage}` });
     }
     return;
   }
