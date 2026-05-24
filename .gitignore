@@ -1,4 +1,8 @@
-dist
-node_modules
 .env
 .txt
+
+dist
+node_modules
+
+server.crt
+server.key

@@ -5,7 +5,7 @@ import routes from "./routes/index.js";
 
 // Connect to the MongoDB database using the connectDB function and store the connection in a variable
 const connection: any = await connectDB();
-connection.on("error", (err: Error) => console.error("Erro de conexão: ", err));
+connection.on("error", (err: Error) => console.error(`Erro na conexão com o banco de dados: ${err.message}`));
 connection.once("open", () =>
   console.log("Conexão com o banco de dados estabelecida."),
 );

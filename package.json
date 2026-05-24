@@ -26,6 +26,7 @@
     "@eslint/js": "10.0.1",
     "@types/express": "5.0.6",
     "@types/node": "25.6.2",
+    "@types/spdy": "3.4.9",
     "eslint": "10.3.0",
     "express": "5.2.1",
     "globals": "17.6.0",
@@ -40,6 +41,7 @@
     "express": "5.2.1",
     "mongodb": "7.2.0",
     "mongoose": "9.6.2",
-    "nodemon": "3.1.14"
+    "nodemon": "3.1.14",
+    "spdy": "^4.0.2"
   }
 }
