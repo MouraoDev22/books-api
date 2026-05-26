@@ -104,6 +104,25 @@ class BookController {
     return;
   }
 
+  // Static method to retrieve books from the database based on the author specified in the query parameters and return them as JSON
+  static async getBooksByAuthor(
+    req: express.Request,
+    res: express.Response,
+  ): Promise<void> {
+    const author: string = req.query.author;
+    try {
+      const booksByAuthor: any = await book.find({ author: author });
+      res.status(200).json(booksByAuthor);
+    } catch (error: unknown) {
+      const errorMessage: string =
+        error instanceof Error ? error.message : "Erro desconhecido";
+      res
+        .status(500)
+        .json({ message: `Erro ao obter livros por autor: ${errorMessage}` });
+    }
+    return;
+  }
+
   // Static method to retrieve books from the database based on the publisher specified in the query parameters and return them as JSON
   static async getBooksByPublisher(
     req: express.Request,
