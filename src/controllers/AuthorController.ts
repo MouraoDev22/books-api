@@ -1,6 +1,7 @@
 // @ts-ignore: missing type declarations for express
 import express from "express";
 import { author } from "../models/Author.js";
+import mongoose from "mongoose";
 
 // Define the BookController class with static methods for handling author-related operations
 class AuthorController {
@@ -30,10 +31,19 @@ class AuthorController {
     try {
       const id: string = req.params.id;
       const foundAuthor: any = await author.findById(id);
+
+      if (!foundAuthor) {
+        res.status(404).json({ message: "Autor não encontrado" });
+        return;
+      }
       res.status(200).json(foundAuthor);
     } catch (error: unknown) {
       const errorMessage: string =
-        error instanceof Error ? error.message : "Erro desconhecido";
+        error instanceof Error
+          ? error.message
+          : error instanceof mongoose.Error.CastError
+            ? "Um ou mais IDs fornecidos são inválidos"
+            : "Erro desconhecido";
       res.status(500).json({ message: `Erro ao obter autor: ${errorMessage}` });
     }
     return;
